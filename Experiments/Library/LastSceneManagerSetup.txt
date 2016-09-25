@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Particles/Particles 102/demo.unity
+- path: Assets/Palette/Palette.unity
   isLoaded: 1
   isActive: 1
