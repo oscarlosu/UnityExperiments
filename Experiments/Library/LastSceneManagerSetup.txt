@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Palette/Palette.unity
+- path: Assets/Particles/Sonar.unity
   isLoaded: 1
   isActive: 1
