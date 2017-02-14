@@ -499,7 +499,8 @@
     </member>
     <member name="T:UnityEditor.AnimationMode">
       <summary>
-        <para>AnimationMode is used by the AnimationWindow to store properties modifed by the AnimationClip playback.</para>
+        <para>AnimationMode is used by the AnimationWindow to store properties modified
+      by the AnimationClip playback.</para>
       </summary>
     </member>
     <member name="P:UnityEditor.AnimationMode.animatedPropertyColor">
@@ -507,21 +508,35 @@
         <para>The color used to show that a property is currently being animated.</para>
       </summary>
     </member>
+    <member name="M:UnityEditor.AnimationMode.BeginSampling">
+      <summary>
+        <para>Initialise the start of the animation clip sampling.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.AnimationMode.EndSampling">
+      <summary>
+        <para>Finish the sampling of the animation clip.</para>
+      </summary>
+    </member>
     <member name="M:UnityEditor.AnimationMode.InAnimationMode">
       <summary>
-        <para>Are we currently in AnimationMode.</para>
+        <para>Are we currently in AnimationMode?</para>
       </summary>
     </member>
     <member name="M:UnityEditor.AnimationMode.IsPropertyAnimated(UnityEngine.Object,System.String)">
       <summary>
         <para>Is the specified property currently in animation mode and being animated?</para>
       </summary>
-      <param name="target"></param>
-      <param name="propertyPath"></param>
+      <param name="target">The object to determine if it contained the animation.</param>
+      <param name="propertyPath">The name of the animation to search for.</param>
+      <returns>
+        <para>Whether the property search is found or not.</para>
+      </returns>
     </member>
     <member name="M:UnityEditor.AnimationMode.SampleAnimationClip(UnityEngine.GameObject,UnityEngine.AnimationClip,System.Single)">
       <summary>
-        <para>Samples an AnimationClip on the object and also records any modified properties in AnimationMode.</para>
+        <para>Samples an AnimationClip on the object and also records any modified
+        properties in AnimationMode.</para>
       </summary>
       <param name="gameObject"></param>
       <param name="clip"></param>
@@ -4046,6 +4061,16 @@ These will be used as asset names, which you can then pass to AssetBundle.Load t
     <member name="F:UnityEditor.D3D9FullscreenMode.FullscreenWindow">
       <summary>
         <para>Fullscreen window.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.DDSImporter">
+      <summary>
+        <para>Texture importer lets you modify Texture2D import settings for DDS textures from editor scripts.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.DDSImporter.isReadable">
+      <summary>
+        <para>Is texture data readable from scripts.</para>
       </summary>
     </member>
     <member name="T:UnityEditor.DecoratorDrawer">
@@ -10990,31 +11015,45 @@ This value is the number of screen pixels per point of interface space. For inst
     </member>
     <member name="M:UnityEditor.EditorPrefs.GetFloat(System.String)">
       <summary>
-        <para>Returns the value corresponding to key in the preference file if it exists.</para>
+        <para>Returns the float value corresponding to key if it exists in the preference file.</para>
       </summary>
-      <param name="key"></param>
-      <param name="defaultValue"></param>
+      <param name="key">Name of key to read float from.</param>
+      <param name="defaultValue">Float value to return if the key is not in the storage.</param>
+      <returns>
+        <para>The float value stored in the preference file or the defaultValue id the
+        requested float does not exist.</para>
+      </returns>
     </member>
     <member name="M:UnityEditor.EditorPrefs.GetFloat(System.String,System.Single)">
       <summary>
-        <para>Returns the value corresponding to key in the preference file if it exists.</para>
+        <para>Returns the float value corresponding to key if it exists in the preference file.</para>
       </summary>
-      <param name="key"></param>
-      <param name="defaultValue"></param>
+      <param name="key">Name of key to read float from.</param>
+      <param name="defaultValue">Float value to return if the key is not in the storage.</param>
+      <returns>
+        <para>The float value stored in the preference file or the defaultValue id the
+        requested float does not exist.</para>
+      </returns>
     </member>
     <member name="M:UnityEditor.EditorPrefs.GetInt(System.String)">
       <summary>
         <para>Returns the value corresponding to key in the preference file if it exists.</para>
       </summary>
-      <param name="key"></param>
-      <param name="defaultValue"></param>
+      <param name="key">Name of key to read integer from.</param>
+      <param name="defaultValue">Integer value to return if the key is not in the storage.</param>
+      <returns>
+        <para>The value stored in the preference file.</para>
+      </returns>
     </member>
     <member name="M:UnityEditor.EditorPrefs.GetInt(System.String,System.Int32)">
       <summary>
         <para>Returns the value corresponding to key in the preference file if it exists.</para>
       </summary>
-      <param name="key"></param>
-      <param name="defaultValue"></param>
+      <param name="key">Name of key to read integer from.</param>
+      <param name="defaultValue">Integer value to return if the key is not in the storage.</param>
+      <returns>
+        <para>The value stored in the preference file.</para>
+      </returns>
     </member>
     <member name="M:UnityEditor.EditorPrefs.GetString(System.String)">
       <summary>
@@ -11032,9 +11071,12 @@ This value is the number of screen pixels per point of interface space. For inst
     </member>
     <member name="M:UnityEditor.EditorPrefs.HasKey(System.String)">
       <summary>
-        <para>Returns true if key exists in the preferences.</para>
+        <para>Returns true if key exists in the preferences file.</para>
       </summary>
-      <param name="key"></param>
+      <param name="key">Name of key to check for.</param>
+      <returns>
+        <para>The existence or not of the key.</para>
+      </returns>
     </member>
     <member name="M:UnityEditor.EditorPrefs.SetBool(System.String,System.Boolean)">
       <summary>
@@ -11045,17 +11087,17 @@ This value is the number of screen pixels per point of interface space. For inst
     </member>
     <member name="M:UnityEditor.EditorPrefs.SetFloat(System.String,System.Single)">
       <summary>
-        <para>Sets the value of the preference identified by key.</para>
+        <para>Sets the float value of the preference identified by key.</para>
       </summary>
-      <param name="key"></param>
-      <param name="value"></param>
+      <param name="key">Name of key to write float into.</param>
+      <param name="value">Float value to write into the storage.</param>
     </member>
     <member name="M:UnityEditor.EditorPrefs.SetInt(System.String,System.Int32)">
       <summary>
         <para>Sets the value of the preference identified by key as an integer.</para>
       </summary>
-      <param name="key"></param>
-      <param name="value"></param>
+      <param name="key">Name of key to write integer to.</param>
+      <param name="value">Value of the integer to write into the storage.</param>
     </member>
     <member name="M:UnityEditor.EditorPrefs.SetString(System.String,System.String)">
       <summary>
@@ -16984,6 +17026,11 @@ If the target name is in the provided list of existing names, a unique name is g
         <para>Define how to handle fullscreen mode in macOS standalones.</para>
       </summary>
     </member>
+    <member name="P:UnityEditor.PlayerSettings.muteOtherAudioSources">
+      <summary>
+        <para>Mute or allow audio from other applications to play in the background while the Unity application is running.</para>
+      </summary>
+    </member>
     <member name="P:UnityEditor.PlayerSettings.productName">
       <summary>
         <para>The name of your product.</para>
@@ -18216,6 +18263,160 @@ Note: calling this function will implicitly call Application.SetStackTraceLogTyp
       </summary>
       <param name="platform">Platform to set the flag for.</param>
       <param name="automatic">Should best available graphics API be used?</param>
+    </member>
+    <member name="T:UnityEditor.PlayerSettings.SplashScreen">
+      <summary>
+        <para>Interface to splash screen player settings.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreen.animationBackgroundZoom">
+      <summary>
+        <para>The target zoom (from 0 to 1) for the background when it reaches the end of the SplashScreen animation's total duration. Only used when animationMode is PlayerSettings.SplashScreen.AnimationMode.Custom|AnimationMode.Custom.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreen.animationLogoZoom">
+      <summary>
+        <para>The target zoom (from 0 to 1) for the logo when it reaches the end of the logo animation's total duration. Only used when animationMode is PlayerSettings.SplashScreen.AnimationMode.Custom|AnimationMode.Custom.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreen.animationMode">
+      <summary>
+        <para>The type of animation applied during the splash screen.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreen.background">
+      <summary>
+        <para>The background Sprite that is shown in landscape mode. Also shown in portrait mode if backgroundPortrait is null.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreen.backgroundColor">
+      <summary>
+        <para>The background color shown if no background Sprite is assigned. Default is a dark blue RGB(34.44,54).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreen.backgroundPortrait">
+      <summary>
+        <para>The background Sprite that is shown in portrait mode.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreen.drawMode">
+      <summary>
+        <para>Determines how the Unity logo should be drawn, if it is enabled. If no Unity logo exists in [logos] then the draw mode defaults to PlayerSettings.SplashScreen.DrawMode.UnityLogoBelow|DrawMode.UnityLogoBelow.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreen.logos">
+      <summary>
+        <para>The collection of logos that is shown during the splash screen. Logos are drawn in ascending order, starting from index 0, followed by 1, etc etc.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreen.overlayOpacity">
+      <summary>
+        <para>In order to increase contrast between the background and the logos, an overlay color modifier is applied. The overlay opacity is the strength of this effect. Note: Reducing the value below 0.5 requires a Plus/Pro license.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreen.show">
+      <summary>
+        <para>Set this to true to display the Splash Screen be shown when the application is launched. Set it to false to disable the Splash Screen. Note: Disabling the Splash Screen requires a Plus/Pro license.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreen.showUnityLogo">
+      <summary>
+        <para>Set this to true to show the Unity logo during the Splash Screen. Set it to false to disable the Unity logo. Note: Disabling the Unity logo requires a Plus/Pro license.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreen.unityLogoStyle">
+      <summary>
+        <para>The style to use for the Unity logo during the Splash Screen.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.PlayerSettings.SplashScreen.AnimationMode">
+      <summary>
+        <para>The type of animation applied during the Splash Screen.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.PlayerSettings.SplashScreen.AnimationMode.Custom">
+      <summary>
+        <para>Animates the Splash Screen using custom values from PlayerSettings.SplashScreen.animationBackgroundZoom and PlayerSettings.SplashScreen.animationLogoZoom.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.PlayerSettings.SplashScreen.AnimationMode.Dolly">
+      <summary>
+        <para>Animates the Splash Screen with a simulated dolly effect.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.PlayerSettings.SplashScreen.AnimationMode.Static">
+      <summary>
+        <para>No animation is applied to the Splash Screen logo or background.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.PlayerSettings.SplashScreen.DrawMode">
+      <summary>
+        <para>Determines how the Unity logo should be drawn, if it is enabled.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.PlayerSettings.SplashScreen.DrawMode.AllSequential">
+      <summary>
+        <para>The Unity logo is shown sequentially providing it exists in the PlayerSettings.SplashScreen.logos collection.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.PlayerSettings.SplashScreen.DrawMode.UnityLogoBelow">
+      <summary>
+        <para>The Unity logo is drawn in the lower portion of the screen for the duration of the Splash Screen, while the PlayerSettings.SplashScreen.logos are shown in the centre.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.PlayerSettings.SplashScreen.UnityLogoStyle">
+      <summary>
+        <para>The style to use for the Unity logo during the Splash Screen.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.PlayerSettings.SplashScreen.UnityLogoStyle.DarkOnLight">
+      <summary>
+        <para>A dark Unity logo with a light background.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.PlayerSettings.SplashScreen.UnityLogoStyle.LightOnDark">
+      <summary>
+        <para>A white Unity logo with a dark background.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.PlayerSettings.SplashScreenLogo">
+      <summary>
+        <para>A single logo that is shown during the Splash Screen. Controls the Sprite that is displayed and its duration.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreenLogo.duration">
+      <summary>
+        <para>The total time in seconds for which the logo is shown. The minimum duration is 2 seconds.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreenLogo.logo">
+      <summary>
+        <para>The Sprite that is shown during this logo. If this is null, then no logo will be displayed for the duration.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.PlayerSettings.SplashScreenLogo.unityLogo">
+      <summary>
+        <para>The Unity logo Sprite.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.PlayerSettings.SplashScreenLogo.Create(System.Single,UnityEngine.Sprite)">
+      <summary>
+        <para>Creates a new Splash Screen logo with the provided duration and logo Sprite.</para>
+      </summary>
+      <param name="duration">The total time in seconds that the logo will be shown. Note minimum time is 2 seconds.</param>
+      <param name="logo">The logo Sprite to display.</param>
+      <returns>
+        <para>The new logo.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.PlayerSettings.SplashScreenLogo.CreateWithUnityLogo(System.Single)">
+      <summary>
+        <para>Creates a new Splash Screen logo with the provided duration and the unity logo.</para>
+      </summary>
+      <param name="duration">The total time in seconds that the logo will be shown. Note minimum time is 2 seconds.</param>
+      <returns>
+        <para>The new logo.</para>
+      </returns>
     </member>
     <member name="T:UnityEditor.PlayerSettings.Tizen">
       <summary>
@@ -19456,7 +19657,7 @@ For more information - https:msdn.microsoft.comlibrarywindowsappshh779671https:m
     </member>
     <member name="M:UnityEditor.SceneManagement.EditorSceneManager.CloseScene(UnityEngine.SceneManagement.Scene,System.Boolean)">
       <summary>
-        <para>Close the Scene. If removeScene flag is true, the closed Scene will also be removed from EditorSceneManager.</para>
+        <para>Close the Scene. If removeScene flag is true, the closed Scene is also removed from EditorSceneManager.</para>
       </summary>
       <param name="scene">The Scene to be closed/removed.</param>
       <param name="removeScene">Bool flag to indicate if the Scene should be removed after closing.</param>
@@ -19500,14 +19701,14 @@ For more information - https:msdn.microsoft.comlibrarywindowsappshh779671https:m
         <para>Allows you to reorder the Scenes currently open in the Hierarchy window. Moves the source Scene so it comes after the destination Scene.</para>
       </summary>
       <param name="src">The Scene to move.</param>
-      <param name="dst">The Scene which the source Scene should come after in the hierarchy.</param>
+      <param name="dst">The Scene which should come directly before the source Scene in the hierarchy.</param>
     </member>
     <member name="M:UnityEditor.SceneManagement.EditorSceneManager.MoveSceneBefore(UnityEngine.SceneManagement.Scene,UnityEngine.SceneManagement.Scene)">
       <summary>
         <para>Allows you to reorder the Scenes currently open in the Hierarchy window. Moves the source Scene so it comes before the destination Scene.</para>
       </summary>
       <param name="src">The Scene to move.</param>
-      <param name="dst">The Scene which the source Scene should come before in the hierarchy.</param>
+      <param name="dst">The Scene which should come directly after the source Scene in the hierarchy.</param>
     </member>
     <member name="M:UnityEditor.SceneManagement.EditorSceneManager.NewScene(UnityEditor.SceneManagement.NewSceneSetup,UnityEditor.SceneManagement.NewSceneMode)">
       <summary>
@@ -19523,7 +19724,7 @@ For more information - https:msdn.microsoft.comlibrarywindowsappshh779671https:m
       <summary>
         <para>Open a Scene in the Editor.</para>
       </summary>
-      <param name="scenePath">Path of the Scene. Should be relative to the project folder. Like: "AssetsMyScenesMyScene.unity".</param>
+      <param name="scenePath">The path of the Scene. This should be relative to the Project folder; for example, "AssetsMyScenesMyScene.unity".</param>
       <param name="mode">Allows you to select how to open the specified Scene, and whether to keep existing Scenes in the Hierarchy. See SceneManagement.OpenSceneMode for more information about the options.</param>
       <returns>
         <para>A reference to the opened Scene.</para>
@@ -19537,19 +19738,19 @@ For more information - https:msdn.microsoft.comlibrarywindowsappshh779671https:m
     </member>
     <member name="M:UnityEditor.SceneManagement.EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo">
       <summary>
-        <para>Ask the user if they want to save the the modified Scene(s).</para>
+        <para>Asks you if you want to save the modified Scene or Scenes.</para>
       </summary>
       <returns>
-        <para>Whether the user chose to save the Scene (true) or pressed cancel (false).</para>
+        <para>This returns true if you chose to save the Scene or Scenes, and returns false if you pressed Cancel.</para>
       </returns>
     </member>
     <member name="M:UnityEditor.SceneManagement.EditorSceneManager.SaveModifiedScenesIfUserWantsTo(UnityEngine.SceneManagement.Scene[])">
       <summary>
-        <para>Ask the user if they want to save any of the modfied input Scenes.</para>
+        <para>Asks whether the modfied input Scenes should be saved.</para>
       </summary>
       <param name="scenes">Scenes that should be saved if they are modified.</param>
       <returns>
-        <para>Whether the user chose to save the Scenes.</para>
+        <para>Your choice of whether to save or not save the Scenes.</para>
       </returns>
     </member>
     <member name="M:UnityEditor.SceneManagement.EditorSceneManager.SaveOpenScenes">
@@ -19565,8 +19766,8 @@ For more information - https:msdn.microsoft.comlibrarywindowsappshh779671https:m
         <para>Save a Scene.</para>
       </summary>
       <param name="scene">The Scene to be saved.</param>
-      <param name="dstScenePath">The file path to save the Scene to. If the path is not empty, the current open Scene will be overwritten, or if it as not yet been saved at all, a save dialog is shown.</param>
-      <param name="saveAsCopy">If set to true, the Scene will be saved without changing the current Scene and without clearing the unsaved changes marker.</param>
+      <param name="dstScenePath">The file path to save the Scene to. If the path is not empty, the current open Scene is overwritten. If it has not yet been saved at all, a save dialog is shown.</param>
+      <param name="saveAsCopy">If set to true, the Scene is saved without changing the current Scene, and without clearing the unsaved changes marker.</param>
       <returns>
         <para>True if the save succeeded, otherwise false.</para>
       </returns>
@@ -21627,6 +21828,12 @@ Values match the ProceduralMaterial::ProceduralLoadingBehavior enum.</param>
       <returns>
         <para>True if the importer allows alpha split on the imported texture, False otherwise.</para>
       </returns>
+    </member>
+    <member name="M:UnityEditor.TextureImporter.GetAutomaticFormat(System.String)">
+      <summary>
+        <para>TODO.</para>
+      </summary>
+      <param name="platform"></param>
     </member>
     <member name="M:UnityEditor.TextureImporter.GetDefaultPlatformTextureSettings">
       <summary>
