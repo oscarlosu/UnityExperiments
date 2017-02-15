@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 885b286c356018c42a2d46a0fdeca8a0
+timeCreated: 1487113101
+licenseType: Free
+NativeFormatImporter:
+  userData: "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<!-- Created
+    with Inkscape (http://www.inkscape.org/) -->\n\n<svg\n   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n
+    \  xmlns:cc=\"http://creativecommons.org/ns#\"\n   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n
+    \  xmlns:svg=\"http://www.w3.org/2000/svg\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n
+    \  xmlns:sodipodi=\"http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd\"\n   xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\"\n
+    \  width=\"512\"\n   height=\"512\"\n   viewBox=\"0 0 512.00001 512.00001\"\n
+    \  id=\"svg7311\"\n   version=\"1.1\"\n   inkscape:version=\"0.92.0 r15299\"\n
+    \  sodipodi:docname=\"Square.svg\">\n  <defs\n     id=\"defs7313\" />\n  <sodipodi:namedview\n
+    \    id=\"base\"\n     pagecolor=\"#ffffff\"\n     bordercolor=\"#666666\"\n     borderopacity=\"0\"\n
+    \    inkscape:pageopacity=\"0.36862745\"\n     inkscape:pageshadow=\"2\"\n     inkscape:zoom=\"1.8101934\"\n
+    \    inkscape:cx=\"347.69667\"\n     inkscape:cy=\"267.0089\"\n     inkscape:document-units=\"px\"\n
+    \    inkscape:current-layer=\"layer1\"\n     showgrid=\"false\"\n     units=\"px\"\n
+    \    inkscape:window-width=\"1920\"\n     inkscape:window-height=\"1001\"\n     inkscape:window-x=\"-9\"\n
+    \    inkscape:window-y=\"-9\"\n     inkscape:window-maximized=\"1\"\n     borderlayer=\"false\"
+    />\n  <metadata\n     id=\"metadata7316\">\n    <rdf:RDF>\n      <cc:Work\n         rdf:about=\"\">\n
+    \       <dc:format>image/svg+xml</dc:format>\n        <dc:type\n           rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\"
+    />\n        <dc:title></dc:title>\n      </cc:Work>\n    </rdf:RDF>\n  </metadata>\n
+    \ <g\n     inkscape:label=\"Layer 1\"\n     inkscape:groupmode=\"layer\"\n     id=\"layer1\"\n
+    \    transform=\"translate(0,-540.36216)\">\n    <rect\n       style=\"fill:#ffffff;stroke:none;stroke-width:0.80186731\"\n
+    \      id=\"rect24\"\n       width=\"199.19814\"\n       height=\"199.19814\"\n
+    \      x=\"95.470833\"\n       y=\"635.60675\" />\n  </g>\n</svg>\n"
+  assetBundleName: 
+  assetBundleVariant: 

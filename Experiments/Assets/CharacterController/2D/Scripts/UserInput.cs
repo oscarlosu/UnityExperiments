@@ -26,6 +26,16 @@ public class UserInput : MonoBehaviour {
         }
     }
 
+    public Vector2 XYInput {
+        get {
+            return new Vector2(XInput, YInput);
+        }
+        set {
+            XInput = value.x;
+            YInput = value.y;
+        }
+    }
+
 
     void Start () {
 		
