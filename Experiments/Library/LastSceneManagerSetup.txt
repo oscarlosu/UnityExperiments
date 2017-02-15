@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/3DPlatformer/Test.unity
+- path: Assets/CharacterController/2D/Scenes/2DCharacterController.unity
   isLoaded: 1
   isActive: 1

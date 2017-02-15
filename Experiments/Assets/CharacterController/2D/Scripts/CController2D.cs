@@ -7,6 +7,9 @@ public class CController2D : MonoBehaviour {
     protected Rigidbody2D rb;
     protected UserInput input;
     [SerializeField]
+    [Range(0, 20)]
+    protected int maxRaycastHit2D = 4;
+    [SerializeField]
     [Range(0.0f, Mathf.Infinity)]
     protected float g = 9.8f;
     [SerializeField]
@@ -19,9 +22,12 @@ public class CController2D : MonoBehaviour {
 
     protected Vector2 v = Vector2.zero;
 
+    protected RaycastHit2D[] hits;
+
     void Start () {
         rb = GetComponent<Rigidbody2D>();
         input = GetComponent<UserInput>();
+        hits = new RaycastHit2D[maxRaycastHit2D];
     }
 	
 	void FixedUpdate () {
@@ -52,18 +58,28 @@ public class CController2D : MonoBehaviour {
         // TODO: Should drag apply to gravity?
         v.y -= g * Time.fixedDeltaTime;
 
-        // Restrict movement with obstacles
-        RaycastHit2D[] hits = new RaycastHit2D[1];
+        // Restrict movement with obstacles        
         // Cast rigidbody to anticipate collisions
-        if(rb.Cast(v, hits, v.magnitude) > 0) {
+        int nHits = rb.Cast(v, hits, v.magnitude * Time.fixedDeltaTime);
+        if(nHits > 0) {
             Vector2 vs, vn;
-            foreach(RaycastHit2D h in hits) {
-                // Split velocity in surface and surface normal components
-                vn = Vector2.Dot(h.normal, v) * h.normal;
-                vs = v - vn;
-                // Reduce vn magnitude with distance to obstacle
-                vn = vn.normalized * Mathf.Min(h.distance / Time.fixedDeltaTime, v.magnitude);
-                v = vs + vn;
+            float dotWithNormal;
+            RaycastHit2D h;
+            for (int i = 0; i < nHits; ++i) {
+                h = hits[i];                
+                
+                // Check if velocity can make character go inside obstacle             
+                dotWithNormal = Vector2.Dot(h.normal, v);    
+                if(dotWithNormal < 0) {
+                    Debug.DrawLine(rb.position, h.point, Color.red);
+                    // Split velocity in surface and surface normal components
+                    vn = dotWithNormal * h.normal;
+                    vs = v - vn;
+                    // Reduce vn magnitude with distance to obstacle
+                    vn = vn.normalized * Mathf.Min(h.distance / Time.fixedDeltaTime, v.magnitude);
+                    v = vs + vn;
+                }                
+                
             }            
         }
         // Move rigidbody using velocity
