@@ -1,4 +1,6 @@
-﻿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
 Shader "UnityCookie/Beginner/2_Lambert" {
 	Properties {
@@ -33,7 +35,7 @@ Shader "UnityCookie/Beginner/2_Lambert" {
 			// vertex function
 			vertexOutput vert(vertexInput i) {
 				vertexOutput o;
-				o.pos = mul(UNITY_MATRIX_MVP, i.vertex);
+				o.pos = UnityObjectToClipPos(i.vertex);
 
 				// Lambert light
 				float3 normalDirection = normalize(mul(float4(i.normal, 0.0), unity_WorldToObject).xyz);

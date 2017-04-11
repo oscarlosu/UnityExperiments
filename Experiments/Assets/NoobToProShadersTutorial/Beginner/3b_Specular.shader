@@ -1,4 +1,6 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 // Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
 Shader "UnityCookie/Beginner/3b_Specular" {
@@ -41,7 +43,7 @@ Shader "UnityCookie/Beginner/3b_Specular" {
 			vertexOutput vert(vertexInput i) {
 				vertexOutput o;
 				// Position
-				o.pos = mul(UNITY_MATRIX_MVP, i.vertex);
+				o.pos = UnityObjectToClipPos(i.vertex);
 				o.posWorld = mul(unity_ObjectToWorld, i.vertex);
 				o.normalDir = normalize(mul(float4(i.normal, 0.0), unity_WorldToObject).xyz);
 

@@ -1,4 +1,6 @@
-﻿Shader "Custom/PaletteGradient" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/PaletteGradient" {
 	Properties {
 		_bias ("Offset", Vector) = (0.5, 0.5, 0.5)
 		_scale ("Magnitude", Vector) = (0.5, 0.5, 0.5)
@@ -30,7 +32,7 @@
 			// vertex function
 			vertexOutput vert(vertexInput i) {
 				vertexOutput o;
-				o.hiddenPos = mul(UNITY_MATRIX_MVP, i.vertex);
+				o.hiddenPos = UnityObjectToClipPos(i.vertex);
 				o.pos = i.vertex;
 				return o;
 			}

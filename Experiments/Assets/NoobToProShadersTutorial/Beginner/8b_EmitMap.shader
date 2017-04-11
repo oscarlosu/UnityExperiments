@@ -1,4 +1,6 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 // Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
 Shader "UnityCookie/Beginner/8b_EmitMap" {
@@ -74,7 +76,7 @@ Shader "UnityCookie/Beginner/8b_EmitMap" {
 			vertexOutput vert(vertexInput i) {
 				vertexOutput o;
 				// Position
-				o.pos = mul(UNITY_MATRIX_MVP, i.vertex);
+				o.pos = UnityObjectToClipPos(i.vertex);
 				o.posWorld = mul(unity_ObjectToWorld, i.vertex);
 				o.tex = i.texcoord;
 
@@ -188,7 +190,7 @@ Shader "UnityCookie/Beginner/8b_EmitMap" {
 			vertexOutput vert(vertexInput i) {
 				vertexOutput o;
 				// Position
-				o.pos = mul(UNITY_MATRIX_MVP, i.vertex);
+				o.pos = UnityObjectToClipPos(i.vertex);
 				o.posWorld = mul(unity_ObjectToWorld, i.vertex);
 				o.tex = i.texcoord;
 

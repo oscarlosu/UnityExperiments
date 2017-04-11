@@ -1,4 +1,6 @@
-﻿Shader "UnityCookie/Beginner/1_FlatColor" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "UnityCookie/Beginner/1_FlatColor" {
 	Properties {
 		_Color ("Color", Color) = (1.0, 1.0, 1.0, 1.0)
 	}
@@ -21,7 +23,7 @@
 			// vertex function
 			vertexOutput vert(vertexInput i) {
 				vertexOutput o;
-				o.pos = mul(UNITY_MATRIX_MVP, i.vertex);
+				o.pos = UnityObjectToClipPos(i.vertex);
 				return o;
 			}
 			// fragment function
