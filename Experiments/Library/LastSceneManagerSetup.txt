@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Water/Water.unity
+- path: Assets/PhoneMotion/PhoneMotion.unity
   isLoaded: 1
   isActive: 1
