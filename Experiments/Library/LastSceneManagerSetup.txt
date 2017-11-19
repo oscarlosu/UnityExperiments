@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/PhoneMotion/PhoneMotion.unity
+- path: Assets/Grass/Grass.unity
   isLoaded: 1
   isActive: 1
